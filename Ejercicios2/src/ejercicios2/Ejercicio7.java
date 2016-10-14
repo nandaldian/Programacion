@@ -4,35 +4,31 @@
 //socios y 35% si los padres son socios
 package ejercicios2;
 
-import java.util.Scanner;
+import java.util.*;
 
-/**
- *
- * @author mati
- */
 public class Ejercicio7 {
+
     public static void main(String[] args) {
-        Scanner tcl =  new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         int edad;
-        String resp;
-        
-        System.out.println("Introduce tu edad: ");
-        edad = tcl.nextInt();
-        tcl.nextLine();
-        
-           if (edad >= 65){
-               System.out.println("Dispone de un descuento del 50%, a pagar un total de : " +(500-(500*0.5)));
-           }
-                if (edad < 18){
-                    System.out.println("Son tus padres socios? S/N");
-                    resp = tcl.next();
-                                   
-                    if (resp.toLowerCase().charAt(0) == 's')
-                         System.out.println("Tu descuento es de 35%, a pagar: "+(500-(500*0.35)));
-                    else
-                         System.out.println("Tu descuento es de 25%, a pagar: "+(500-(500*0.25)));
-                
-                }        
+
+        System.out.println("Introduce tu edad");
+        edad = scanner.nextInt();
+        if (edad >= 65) {
+            System.out.println("Tu cuota es " + 500 * 0.5 + "€");
+        } else if (edad < 18) {
+
+            System.out.println("¿Tus padres son socios?(True/False)");
+            boolean socios = scanner.nextBoolean();
+            if (socios) {
+                System.out.println("La cuota a pagar es " + 500 * 0.75 + "€");
+            } else {
+                System.out.println("La cuota a pagar es " + 500 * 0.65 + "€");
+            }
+        } else {
+            System.out.println("La cuota a pagar es 500€");
+        }
+
     }
-    
+
 }
