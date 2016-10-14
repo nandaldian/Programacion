@@ -1,37 +1,56 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package ejercicios2;
 
-import java.util.GregorianCalendar;
-import java.util.Scanner;
+import java.util.*;
 
-/**
- *
- * @author mati
- */
 public class Ejercicio8 {
+
     public static void main(String[] args) {
- int edad;
- Scanner tcl = new Scanner(System.in);
- 
- 
- GregorianCalendar fecha= new GregorianCalendar();
- int diaHoy= fecha.get(GregorianCalendar.DAY_OF_MONTH);
- int mesHoy= fecha.get(GregorianCalendar.MONTH)+1;
- int anyoHoy=fecha.get(GregorianCalendar.YEAR) ;
+        Scanner scanner = new Scanner(System.in);
+        int dia;
+        int mes;
+        int año;
+        int dianac;
+        int mesnac;
+        int añonac;
+        double diasedad = 0;
+        double edad;
 
- System.out.printf("%d/%d/%d \n\n" ,diaHoy,mesHoy,anyoHoy);
- 
-System.out.println("Introduce tu fecha de nacimiento");
+        System.out.println("Escribe la fecha actual. (Día, mes y año)");
+        dia = scanner.nextInt();
+        mes = scanner.nextInt();
+        año = scanner.nextInt();
 
-        
- 
- 
- 
+        System.out.println("Escribe la fecha en la que naciste. (Día, mes y año)");
+        dianac = scanner.nextInt();
+        mesnac = scanner.nextInt();
+        añonac = scanner.nextInt();
+
+        while (añonac < año) {
+            añonac++;
+            diasedad = diasedad + 365;
+
+        }
+        if (mesnac > mes) {
+            mesnac--;
+            diasedad = diasedad - 30;
+
+        } else if (mesnac < mes) {
+            mesnac++;
+            diasedad = diasedad + 30;
+
+        }
+        while (dianac < dia) {
+            dianac++;
+            diasedad++;
+
+        }
+        while (dianac > dia) {
+            dianac--;
+            diasedad--;
+        }
+        edad = diasedad / 360;
+        edad = (int) edad;
+
+        System.out.println("Tienes " + edad + " años.");
     }
- 
-    
+
 }
